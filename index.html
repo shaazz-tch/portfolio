@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahith S S | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg-primary: #0b0f19;
+            --bg-secondary: #131a2c;
+            --bg-card: #1e2640;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.08);
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'Space Grotesk', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-card);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Typography & Layout Utility */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .menu-btn {
+            display: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            filter: blur(150px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+
+        .hero-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 80px;
+            width: 100%;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 700px;
+            position: relative;
+            bottom: 10px;
+        }
+
+        .hero-content,
+        .hero-content * {
+            text-align: left;
+        }
+
+
+        .hero-tag {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-family:'ohho';
+            
+        }
+
+        .hero-title span {
+            background: linear-gradient(to right, var(--text-main), var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+        }
+
+
+        .profile-card {
+            width: 420px;
+            height: 520px;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .profile-card img {
+            border-radius: 30px;
+        }
+
+
+        .cta-group {
+            justify-content: flex-start;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border: 1px solid var(--accent);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--text-muted);
+        }
+
+        /* About Section */
+        #about {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .philosophy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .philosophy-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .comp-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .comp-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .comp-item h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .comp-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            padding: 100px 0;
+        }
+
+        .filter-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: none;
+            /* Controlled via JS filter */
+        }
+
+        .project-card.show {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-category {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+        }
+
+        /* Timeline & Resume Section */
+        #resume {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+        }
+
+        .timeline-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .timeline {
+            border-left: 2px solid var(--border);
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-2rem - 7px);
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .time-period {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-org {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-body {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .timeline-body ul {
+            list-style-position: inside;
+            margin-top: 0.5rem;
+        }
+
+        /* Skills & Meta Column */
+        .skills-column {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .skills-wrap h3,
+        .meta-wrap h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-node {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .skill-node:hover {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .meta-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .meta-list li {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .meta-label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        /* Certifications Grid layout inside Meta Column */
+        .certs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cert-item {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent);
+            padding: 1rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .cert-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .cert-issuer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 3rem;
+            border-radius: 16px;
+        }
+
+        .contact-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+
+            .about-grid,
+            .resume-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content,
+            .hero-content * {
+                text-align: center;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+
+            .profile-card {
+                width: 320px;
+                height: 400px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                /* Requires full mobile implementation if expansion needed */
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <a href="#" class="logo">SHAHITH <span>S S</span></a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Works</a></li>
+                <li><a href="#resume">Qualifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-wrapper">
+
+            <!-- LEFT IMAGE -->
+            <div class="profile-card">
+                <img src="assets/profile.png" alt="Shahith Profile">
+            </div>
+
+            <!-- RIGHT CONTENT -->
+            <div class="hero-content">
+                <span class="hero-tag">
+                    AESTHETIC MEETS FUNCTIONALITY
+                </span>
+
+                <h1 class="hero-title">
+                    Crafting <span>User-Centered Digital Experiences</span>
+                    & Intelligent Interfaces.
+                </h1>
+
+                <p class="hero-subtitle">
+                    Hi, I'm Shahith S S. A multidisciplinary Graphic Designer,
+                    Front-End Developer, and Computer Science Student focused on
+                    sleek layouts and technical optimization.
+                </p>
+
+                <div class="cta-group">
+                    <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- 
+    <div class="profile-card">
+
+        <img src="assets/profile.png" alt="Shahith Profile">
+
+    </div> -->
+
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Professional Identity</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Highly motivated and detail-oriented Computer Science student with a robust background in
+                        structural development and creative styling ecosystems.</p>
+                    <p>I thrive at the intersection of aesthetic expression and structural execution, mapping clear user
+                        paths and rendering them beautifully into live, performant digital infrastructure.</p>
+
+                    <div class="philosophy-card">
+                        <h3>Vision & Philosophy</h3>
+                        <p style="margin:0; font-size: 0.95rem;">To strip away arbitrary noise and present technical
+                            complexity via highly optimized, minimalist architectures. Good design isn't just
+                            decoration—it's clarity, logic, and speed combined.</p>
+                    </div>
+                </div>
+                <div class="competencies-grid">
+                    <div class="comp-item">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                        <div>
+                            <h4>UI/UX Optimization</h4>
+                            <p>Designing user pathways anchored on behavioral patterns, user metrics, and precise
+                                typographic visual hierarchy.</p>
+                        </div>
+                    </div>
+                    <div class="comp-item">
+                        <i class="fa-solid fa-code"></i>
+                        <div>
+                            <h4>Front-End Engineering</h4>
+                            <p>Writing highly responsive, clean, semantic interface code engineered for seamless
+                                multi-platform consistency.</p>
+                        </div>
+                    </div>
+                    <div class="comp-item">
+                        <i class="fa-solid fa-bezier-curve"></i>
+                        <div>
+                            <h4>Graphic Asset Creation</h4>
+                            <p>Developing corporate visual assets, vector components, layouts, and system identities
+                                utilizing industry-standard design tooling.</p>
+                        </div>
+                    </div>
+                    <div class="comp-item">
+                        <i class="fa-solid fa-brain"></i>
+                        <div>
+                            <h4>Machine Intelligence</h4>
+                            <p>Implementing data cleaning pipelines, pattern-focused predictive models, and running
+                                exploratory structural analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Selected Works</h2>
+
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Showcase</button>
+                <button class="filter-btn" data-filter="uiux">UI/UX Cases</button>
+                <button class="filter-btn" data-filter="frontend">Front-End</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+            </div>
+
+            <div class="portfolio-grid">
+
+                <div class="project-card" data-category="frontend uiux">
+                    <img src="assets/ChatGPT Image Jun 21, 2026, 09_47_56 AM.png" alt="E-Commerce Gift Platform"
+                        class="project-img">
+                    <div class="project-content">
+                        <span class="project-category">Responsive Web / UIUX </span>
+                        <h3 class="project-title">E-Commerce Gift Platform</h3>
+                        <p class="project-desc"><strong>Problem:</strong> Fragmented customer purchasing workflows for
+                            customized artistic goods.<br><strong>Solution:</strong> Developed a responsive ecosystem
+                            emphasizing a user-centered design approach for seamless catalog navigation and immediate
+                            product conversion pathways.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="ml">
+                    <img src="assets/analytic dashboard.png" alt="Pattern Recognition System" class="project-img">
+                    <div class="project-content">
+                        <span class="project-category">Machine Learning</span>
+                        <h3 class="project-title">Predictive Pattern System</h3>
+                        <p class="project-desc"><strong>Problem:</strong> Navigating high-dimensional datasets manually
+                            results in delayed insights.<br><strong>Solution:</strong> Performed structural dataset
+                            exploration and built target models to extract automated trends, vastly improving analytical
+                            team processing limits.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Dataset Analysis</span>
+                            <span class="tech-tag">Scikit-Learn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="uiux">
+                    <img src="assets/mbile ui.png" alt="Application Interface Case Study" class="project-img">
+                    <div class="project-content">
+                        <span class="project-category">UI/UX Case Study</span>
+                        <h3 class="project-title">Mobile Interface Hub</h3>
+                        <p class="project-desc">A deep-dive research framework documenting layout optimization, modern
+                            visual system components, wireframes, high-fidelity prototypes, and user verification
+                            trials.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Wireframing</span>
+                            <span class="tech-tag">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="graphic">
+                    <img src="assets/2025 Shawarma Branding Ideas_ Food Menu, Poster, Logo & Social Media Design.jpg"
+                        alt="Visual Brand Assets" class="project-img">
+                    <div class="project-content">
+                        <span class="project-category">Graphic Design</span>
+                        <h3 class="project-title">Corporate Brand Assets</h3>
+                        <p class="project-desc">Engineered vector iconography, promotional design collateral layouts,
+                            and system palettes emphasizing unified premium aesthetics for modern corporate identities.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Adobe Photoshop</span>
+                            <span class="tech-tag">Canva</span>
+                            <span class="tech-tag">Branding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="graphic">
+                    <img src="assets/ChatGPT Image Jun 21, 2026, 09_51_31 AM.png" alt="Visual Brand Assets"
+                        class="project-img">
+                    <div class="project-content">
+                        <span class="project-category">Graphic Design</span>
+                        <h3 class="project-title">Corporate Brand Assets</h3>
+                        <p class="project-desc">Therapy-focused social media design emphasizing emotional well-being,
+                            accessibility, and compassionate support through minimalist visual communication,
+                            and system palettes emphasizing unified premium aesthetics for modern corporate identities.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Adobe Photoshop</span>
+                            <span class="tech-tag">Canva</span>
+                            <span class="tech-tag">Branding</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <div class="container">
+            <h2 class="section-title">Growth & Qualifications</h2>
+            <div class="resume-grid">
+
+                <div class="timeline-wrap">
+                    <div class="timeline-section">
+                        <h3><i class="fa-solid fa-briefcase"></i> Professional Experience</h3>
+
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="time-period">Jan 2026 - Present</div>
+                                <h4 class="timeline-title">Feelance Graphic Designer</h4>
+                                <!-- <div class="timeline-org">Jclick Solutions, Nagercoil</div> -->
+                                <div class="timeline-body">
+                                    Designed high-quality visual content and branding materials for diverse
+                                    clients, enhancing brand presence and audience engagement across digital
+                                    platforms.
+                                    <ul>
+                                        <li>Created social media creatives, advertising campaigns, and
+                                            promotional content for businesses and organizations.</li>
+
+                                        <li>Designed brand identities including logos, typography systems, and
+                                            visual style guides.</li>
+
+                                        <li>Developed marketing materials such as brochures, flyers, posters,
+                                            and presentation decks.</li>
+
+                                        <li>Utilized Adobe Photoshop, Adobe Illustrator, Canva, and Figma to
+                                            deliver professional design solutions.</li>
+
+                                        <li>Collaborated with clients to translate concepts into impactful
+                                            visual communications.</li>
+
+                                        <li>Managed end-to-end design workflows from concept development to
+                                            final delivery.</li>
+
+                                        <li>Ensured visual consistency and brand compliance across all creative
+                                            assets.</li>
+                                    </ul>
+                                </div>
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="time-period">Jun 2026 - Present</div>
+                                <h4 class="timeline-title">React.js Intern</h4>
+                                <!-- <div class="timeline-org">Jclick Solutions, Nagercoil</div> -->
+                                <div class="timeline-body">
+                                    Designed and developed modern web applications using React.js, JavaScript, HTML5,
+                                    CSS3, and Vite.
+                                    <ul>
+                                        <li>Built reusable React components and scalable frontend architectures.</li>
+                                        <li>Implemented responsive layouts ensuring cross-device compatibility.</li>
+                                        <li>Integrated RESTful APIs and handled asynchronous data fetching.</li>
+                                        <li>Managed state using React Hooks and Context API.</li>
+                                        <li>Converted UI/UX designs into fully functional web applications.</li>
+                                        <li>Deployed and maintained React projects using Git and GitHub.</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="time-period">Dec 2025 </div>
+                                <h4 class="timeline-title">Machine Learning Intern</h4>
+                                <div class="timeline-org">Jclick Solutions, Nagercoil</div>
+                                <div class="timeline-body">
+                                    Ran extensive dataset analysis pipelines to isolate critical feature sets.
+                                    Engineered target ML tracking layouts for streamlined pattern recognition.
+                                    <ul>
+                                        <li>Coordinated cross-functional objectives in collaborative environment
+                                            structures.</li>
+                                        <li>Acquired deep procedural skillsets across automated model scaling
+                                            frameworks.</li>
+                                    </ul>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+                    <div class="timeline-section">
+                        <h3><i class="fa-solid fa-graduation-cap"></i> Education Timeline</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="time-period">2023 - Expected 2026</div>
+                                <h4 class="timeline-title">B.Sc. Computer Science</h4>
+                                <div class="timeline-org">St. John's College of Arts and Science</div>
+                                <div class="timeline-body">Specializing in foundational computing parameters,
+                                    algorithmic structures, software engineering, and analytical models.</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="time-period">2022</div>
+                                <h4 class="timeline-title">Higher Secondary Education</h4>
+                                <div class="timeline-body">Core focused preparation across analytics, logical
+                                    structuring, and scientific methodologies.</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="time-period">2020</div>
+                                <h4 class="timeline-title">Secondary School Education</h4>
+                                <div class="timeline-body">Acquired core foundational milestones across critical science
+                                    streams and logic systems.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-column">
+                    <div class="skills-wrap">
+                        <h3>Technical Skill Matrix</h3>
+                        <div class="skills-grid">
+                            <div class="skill-node">Adobe Photoshop</div>
+                            <div class="skill-node">Adobe Illustrator</div>
+                            <div class="skill-node">Canva</div>
+                            <div class="skill-node">UI/UX Principles</div>
+                            <div class="skill-node">HTML</div>
+                            <div class="skill-node">CSS</div>
+                            <div class="skill-node">JavaScript</div>
+                            <div class="skill-node">React.js</div>
+                            <div class="skill-node">Python</div>
+                            <div class="skill-node">SQL</div>
+                            <div class="skill-node">Microsoft Office</div>
+
+                        </div>
+                    </div>
+
+                    <div class="certs-wrap">
+                        <h3>Professional Certifications</h3>
+                        <div class="certs-list">
+                            <div class="cert-item">
+                                <div class="cert-name">Front-End Web Development</div>
+                                <div class="cert-issuer">NICDET</div>
+                            </div>
+
+                            <div class="cert-item">
+                                <div class="cert-name">Adobe Photoshop</div>
+                                <div class="cert-issuer">NICDET</div>
+                            </div>
+                            <div class="cert-item">
+                                <div class="cert-name">React.js</div>
+                                <div class="cert-issuer">Certification</div>
+                            </div>
+                            <div class="cert-item">
+                                <div class="cert-name">UX Career Masterclass</div>
+                                <div class="cert-issuer">Mastery</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="meta-wrap">
+                        <h3>Languages</h3>
+                        <ul class="meta-list">
+                            <li><span class="meta-label">Tamil</span><span class="meta-value">Native</span></li>
+                            <li><span class="meta-label">English</span><span class="meta-value">Professional</span></li>
+                            <li><span class="meta-label">Malayalam</span><span class="meta-value">Conversational</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact-section">
+
+        <div class="contact-card">
+
+            <h2>
+                Let's Create Something Meaningful.
+            </h2>
+
+            <p>
+                Open to internships, freelance projects,
+                collaborations and full-time opportunities.
+            </p>
+
+            <div class="contact-info">
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    shahith0203@gmail.com
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +91 8438205224
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Kanyakumari, Tamil Nadu
+                </p>
+
+            </div>
+
+            <div class="social-links">
+
+                <a href="https://github.com/shaazz-tch">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/shahith-s-s">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <h2>
+            Designing Interfaces.
+            Building Experiences.
+            Shaping The Future.
+        </h2>
+
+        <p>
+            © 2026 SHAHITH S S
+        </p>
+
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. Portfolio Categorization Engine
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            function filterProjects(category) {
+                projectCards.forEach(card => {
+                    const cardCategories = card.getAttribute('data-category').split(' ');
+                    if (category === 'all' || cardCategories.includes(category)) {
+                        card.classList.add('show');
+                    } else {
+                        card.classList.remove('show');
+                    }
+                });
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // Remove active layout tracking from former buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    e.currentTarget.classList.add('active');
+
+                    const activeCategory = e.currentTarget.getAttribute('data-filter');
+                    filterProjects(activeCategory);
+                });
+            });
+
+            // Run initialization step to show all elements
+            filterProjects('all');
+
+            // 2. Navigation Link Highlighting via Intersection Observer
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            const observerOptions = {
+                root: null,
+                threshold: 0.3,
+                rootMargin: "-80px 0px 0px 0px" // Account for header offset height
+            };
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${activeId}`) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => sectionObserver.observe(section));
+        });
+    </script>
+</body>
+
+</html>
